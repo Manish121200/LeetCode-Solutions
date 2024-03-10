@@ -1,0 +1,6 @@
+977. Squares of a Sorted Array
+
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        z=[ num*num for num in nums]
+        return list(sorted(z))
