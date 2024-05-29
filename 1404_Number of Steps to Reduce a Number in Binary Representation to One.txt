@@ -1,0 +1,14 @@
+1404. Number of Steps to Reduce a Number in Binary Representation to One
+
+class Solution:
+    def numSteps(self, s: str) -> int:
+        z = int(s,2)
+        print (z)
+        count = 0
+        while (z != 1):
+            if (z%2 == 0):
+                z = z//2
+            else:
+                z += 1
+            count += 1
+        return count

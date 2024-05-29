@@ -1,0 +1,12 @@
+1. Two Sum
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dicti = {}
+        for i in range(0,len(nums)):
+            if nums[i] in dicti.keys():
+                return [dicti[nums[i]],i]
+            dicti[target-nums[i]]=i
+        print(dicti)
+
+        return [-1,-1]        
