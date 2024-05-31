@@ -1,0 +1,12 @@
+260. Single Number III
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> List[int]:
+        z=[]
+        for i in range(0,len(nums)):
+            if nums[i] in z:
+                z.remove(nums[i])
+            else:
+                z.append(nums[i])
+            
+        return z
