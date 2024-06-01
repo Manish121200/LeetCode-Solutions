@@ -1,0 +1,21 @@
+3110. Score of a String
+
+class Solution:
+    def scoreOfString(self, s: str) -> int:
+        summ = 0
+        prev = 0
+        arr = [0]*len(s)
+
+        for i in range(0,len(s)):
+            arr[i] = (ord(s[i]))
+
+        for i in range(0,len(arr)-1):
+            diff = arr[i]-arr[i+1]
+            if (diff < 0):
+                diff =  -diff
+            arr[i] = diff
+
+        for i in range(0,len(arr)-1):
+            summ = summ + arr[i]
+
+        return summ
