@@ -1,0 +1,55 @@
+73. Set Matrix Zeroes
+
+//working : it will exceed the time limit
+
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        for i in range (0,len(matrix)):
+            for j in range(0,len(matrix[0])):
+                print(matrix[i],matrix[i][j])
+                if matrix[i][j] == 0 :
+                    print(i,j)
+                    self.makeRow(matrix,i)
+                    self.makeCol(matrix,j)
+
+        for i in range (0,len(matrix)):
+            for j in range(0,len(matrix[0])):
+                print(matrix[i],matrix[i][j])
+                if matrix[i][j] == -1.1 :
+                    matrix[i][j] = 0
+
+    def makeRow(self,matrix,i):
+        print("row",i)
+        for j in range(0,len(matrix[i])):
+            if matrix[i][j] == 0:
+                continue
+            matrix[i][j] = -1.1
+        return
+    def makeCol(self,matrix,j):
+        print("col",j)
+        for i in range(0,len(matrix)):
+            if matrix[i][j] == 0:
+                continue
+            matrix[i][j] = -1.1
+        return
+        
+
+
+
+
+//optimal:
+
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        row = [1]*len(matrix)
+        col = [1]*len(matrix[0])
+        for i in range (0,len(matrix)):
+            for j in range(0,len(matrix[0])):
+                if matrix[i][j] == 0:
+                    row[i]=0
+                    col[j]=0
+        for i in range(0,len(matrix)):
+            for j in range(0,len(matrix[0])):
+                if (row[i]==0) or (col[j]==0):
+                    matrix[i][j]=0
+
