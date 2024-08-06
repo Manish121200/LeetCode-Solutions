@@ -1,0 +1,14 @@
+129. Sum Root to Leaf Numbers
+
+class Solution:
+  def sumNumbers(self, root: Optional[TreeNode]) -> int:
+    
+    def solve(root,pathSum):
+        if root is None:
+            return 0
+        pathSum = (pathSum*10)+root.val
+        if root.left is None and root.right is None:
+            return pathSum
+        return solve(root.left,pathSum)+solve(root.right,pathSum)
+    pathSum = 0
+    return solve(root,pathSum)
